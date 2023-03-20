@@ -8,7 +8,7 @@ app.set('views', 'views');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
-const productsRouter = require('./search/search-query.js');
+const productsRouter = require('./routes/search-query.js');
 
 app.use('/search-query', productsRouter);
 
