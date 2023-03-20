@@ -1,0 +1,111 @@
+<html>
+	<head>
+		<title>Weather Lookup</title>
+		<link href="./styles.css" rel="stylesheet" type="text/css" />
+	</head>
+	<style>
+		body {
+			text-align: center;
+			background-color: black;
+			color: white;
+		}
+
+		label {
+			font-size: 1rem;
+			text-align: start;
+		}
+
+		input {
+			margin-bottom: 0.2rem;
+		}
+
+		h1 {
+			color: seagreen;
+		}
+
+		h2 {
+			color: dodgerblue;
+			margin: 0;
+			border-bottom: 0.1px solid white;
+		}
+
+		p {
+			border-bottom: 0.1px solid grey;
+			margin-bottom: 0;
+		}
+
+    button{
+      border-radius: 0.3rem;
+      padding: 0.1rem 0.4rem;
+      border: none;
+      color:seagreen;
+      border: 1px solid seagreen;
+      transition: all 0.3s;
+    }
+    button:hover{
+      transform: scale(1.05);
+      background-color:seagreen;
+      color: white;
+      border: 1px solid white;
+    }
+
+		.form-control {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			text-align: start;
+		}
+
+		.results {
+			flex-direction: column;
+			border: 1px solid white;
+			max-width: 40%;
+			margin: auto;
+		}
+
+		.bold {
+			font-weight: 900;
+		}
+
+		.capitalize-first {
+			text-transform: capitalize;
+		}
+	</style>
+	<body>
+		<h1>Weather Lookup</h1>
+		<form action="/search-query" method="POST">
+			<div class="form-controls">
+				<div class="form-control">
+					<label for="latitude">Latitude</label>
+					<input type="text" name="lat" />
+				</div>
+
+				<div class="form-control">
+					<label for="latitude">Longitude</label>
+					<input type="text" name="lon" />
+				</div>
+			</div>
+			<button type="submit">Search</button>
+		</form>
+		<div class="results">
+			<h2><span class="bold">Weather Results</span></h2>
+			<p><span class="bold">Location: </span><%= weatherData.name %></p>
+			<p>
+				<span class="bold">Weather: </span>
+				<span class="capitalize-first"
+					><%= weatherData.weather[0].description %></span
+				>
+			</p>
+			<p>
+				<span class="bold">Temperature: </span><%=
+				weatherData.main.temp === undefined ? '' : Math.round(weatherData.main.temp) %>C°
+			</p>
+			<p>
+				<span class="bold">Wind speed: </span><%= weatherData.wind.speed %>m/s
+			</p>
+			<p>
+				<span class="bold">Humidity: </span><%= weatherData.main.humidity %>%
+			</p>
+		</div>
+	</body>
+</html>
