@@ -10,8 +10,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 const productsRouter = require('./routes/search-query.js');
 
+// POST requests
 app.use('/search-query', productsRouter);
 
+// GET requests
 app.use('/', (req, res, next) => {
 	weatherData = {
 		name: '',
