@@ -27,8 +27,5 @@ app.use('/', (req, res, next) => {
 
 const server = app.listen(5000);
 
-function getInfo() {
-	return 'hi';
-}
 
-module.exports = { getInfo, app, server };
+module.exports = { app, server };
