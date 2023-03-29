@@ -11,7 +11,7 @@ exports.getWeather = (req, res, next) => {
     fetch(endpoint)
     	.then((weatherRes) => weatherRes.json())
     	.then((weatherData) => {
-        console.log(weatherData);
+  
         if(weatherData.name === '')
           weatherData.name = 'Location name unknown';
         res.render('weather', {
