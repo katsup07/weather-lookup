@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const productsRouter = require('./routes/search-query.js');
 
 const app = express();
 
@@ -8,7 +9,6 @@ app.set('views', 'views');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
-const productsRouter = require('./routes/search-query.js');
 
 // POST requests
 app.use('/search-query', productsRouter);
