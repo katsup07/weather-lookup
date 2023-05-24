@@ -70,11 +70,19 @@
 		.capitalize-first {
 			text-transform: capitalize;
 		}
+    .error-container{
+      font-size: 0.45rem;
+      background-color: rgba(255, 61, 61, 0.716);
+      max-width: 60%;
+      margin: auto;
+      border-radius: 10rem;
+    }
 	</style>
 	<body>
 		<h1>Weather Lookup</h1>
 		<form action="/search-query" method="POST">
 			<div class="form-controls">
+        <div class="error-container"><%= weatherData.error || '' %></div>
 				<div class="form-control">
 					<label for="latitude">Latitude</label>
 					<input type="text" name="lat" />
